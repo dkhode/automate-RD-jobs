@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: Pip installation
-          command: pip install -r requirements.txt
+          command: pip install --user -r requirements.txt
       - run:
           name: Run Tests
           command: python -m unittest discover -s test/ -p test_*.py
