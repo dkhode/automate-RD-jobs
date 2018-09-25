@@ -1,4 +1,4 @@
-# automate-RD-jobs
+# Automate-RD-jobs
 
 ## Tests
 python -m unittest discover -s test/ -p test_*.py
