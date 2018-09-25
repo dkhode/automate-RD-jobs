@@ -18,7 +18,7 @@ class TestYamlJobs(unittest.TestCase):
     """Test finction."""
     all_yaml_files = glob2.glob("./projects/**/*.yaml")
     uuids = {}
-    for file_path in all_yaml_file:
+    for file_path in all_yaml_files:
         logger.info("Verify %s" % file_path)
         with open(file_path, 'r') as file:
           job = yaml.load(file.read())
