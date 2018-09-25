@@ -20,16 +20,16 @@ class TestYamlJobs(unittest.TestCase):
     uuids = {}
     for file_path in all_yaml_file:
         logger.info("Verify %s" % file_path)
-      with open(file_path, 'r') as file:
-        job = yaml.load(file.read())
-        job = job[0]
-        if job['uuid'] in uuids:
-          raise ValueError(
-            "Job %s has duplicate UUID of %s" % 
-            (job['name'], uuids[job['uuid']])
-          )
-         uuids[job['uuid']] = job['name']
-         file.close()
+        with open(file_path, 'r') as file:
+          job = yaml.load(file.read())
+          job = job[0]
+          if job['uuid'] in uuids:
+            raise ValueError(
+              "Job %s has duplicate UUID of %s" % 
+              (job['name'], uuids[job['uuid']])
+            )
+          uuids[job['uuid']] = job['name']
+          file.close()
          
          
 if __name__ == '__main__':
