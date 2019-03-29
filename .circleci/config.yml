@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python
+    environment:
+      - RD_URL: localhost
+      - RD_TOKEN: 12345
+    steps:
+      - checkout
+      - run:
+          name: Pip installation
+          command: pip install --user -r requirements.txt
+      - run:
+          name: Run Tests
+          command: python -m unittest discover -s test/ -p test_*.py
+      - run:
+          name: Publish
+          command: |
+            if [[ ${CIRCLE_BRANCH} == "master" ]]; then
+              python import.py
+            else
+              echo "Skip"
+            fi
